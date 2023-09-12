@@ -1,20 +1,18 @@
-import React, { useContext, useEffect } from 'react'
-import { contextGlobal } from '../Context/Index'
-import { useNavigate } from 'react-router-dom'
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { userContext } from "../store/user/Context";
 
 function Signout() {
-
     const navigate = useNavigate();
 
-    const {signout} = useContext(contextGlobal)
+    const { signout } = useContext(userContext);
 
-    useEffect(()=>{
-
+    useEffect(() => {
         signout();
         navigate("/");
-    }, [])
+    }, [navigate, signout]);
 
-  return null
+    return null;
 }
 
-export default Signout
+export default Signout;

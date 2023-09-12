@@ -1,14 +1,14 @@
 import {useContext} from "react"
-import { contextGlobal } from "../Context/Index";
 import Wrapper from "./Wrapper";
+import { productContext } from "../store/product/Context";
 
 function Home() {
 
-    const { state : { products } } = useContext(contextGlobal);
+    const { state : { products } } = useContext(productContext);
 	
-
     return (
 		<>
+		{console.log(products)}
 		<Wrapper info={"un produit acheté un produit offert"} product={products[1]}>
 			<h2>Notre produit coup de coeur</h2>
 			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis ea modi?</p>

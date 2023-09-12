@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { contextGlobal } from "../Context/Index";
+import { productContext } from "../store/product/Context";
 
 function Detail() {
     const { id } = useParams();
-    const { state: {oneProduct}, getOneProduct } = useContext(contextGlobal);
+    const { state: {oneProduct}, getOneProduct } = useContext(productContext);
 
     useEffect(() => {
         getOneProduct(id);

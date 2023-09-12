@@ -8,15 +8,22 @@ import Signin from "./Components/Signin";
 import Signout from "./Components/Signout";
 import Dashboard from "./Components/Dashboard";
 
+import HOC_PRODUCT from "./Components/HOC_PRODUCT";
+
 function App() {
     return (
         <>
             <Header />
 
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/shop" element={<Shop />} />
-                <Route path="/shop/:id" element={<Detail />} />
+                
+                <Route path="/" element={<HOC_PRODUCT child={Home} />} />
+                <Route path="/shop" element={<HOC_PRODUCT child={Shop} />} />
+                <Route
+                    path="/shop/:id"
+                    element={<HOC_PRODUCT child={Detail} />}
+                />
+
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/signout" element={<Signout />} />
                 <Route path="/dashboard" element={<Dashboard />} />

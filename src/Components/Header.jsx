@@ -1,16 +1,14 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { contextGlobal } from "../Context/Index";
+import { userContext } from "../store/user/Context";
 
 function Header() {
     const {
         state: {
             user: { isLogged, alias },
         },
-    } = useContext(contextGlobal);
-
-    console.log(isLogged, alias);
-
+    } = useContext(userContext);
+    
     return (
         <header>
             <nav>
@@ -29,7 +27,6 @@ function Header() {
             </nav>
 
             {isLogged && <p>Vous n'avez rien dans votre panier {alias} 😭</p>}
-
         </header>
     );
 }

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-import { contextGlobal } from '../Context/Index'
+import { userContext } from '../store/user/Context'
 
 function Dashboard() {
 
-    const {state:{ user:{alias}}} = useContext(contextGlobal)
+    const {state:{ user:{alias}}} = useContext(userContext)
 
   return (
         <h2>Hello onboard {alias} 🤩🤩!!</h2>

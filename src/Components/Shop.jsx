@@ -1,20 +1,19 @@
-import {useContext} from "react"
-
-import { contextGlobal } from "../Context/Index";
+import { useContext } from "react";
 import Card from "./Card";
-
+import { productContext } from "../store/product/Context";
 
 function Shop() {
+    const {
+        state: { products },
+    } = useContext(productContext);
 
-	const { state : { products } } = useContext(contextGlobal);
-
-  return (
-	<>
-    {
-		products.map(product => <Card key={product.id} product={product}/>)
-	}
-	</>
-  )
+    return (
+        <>
+            {products.map((product) => (
+                <Card key={product.id} product={product} />
+            ))}
+        </>
+    );
 }
 
-export default Shop
+export default Shop;
